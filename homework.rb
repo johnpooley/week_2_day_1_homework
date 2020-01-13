@@ -112,3 +112,19 @@ class SportsballTeam
 
 
 end
+
+class Library
+
+  attr_accessor :book, :title
+
+  def initialize(book)
+    @book = book
+    # @title = book{:title}
+
+  end
+
+  def get_title
+    return book{:title}
+  end
+
+end

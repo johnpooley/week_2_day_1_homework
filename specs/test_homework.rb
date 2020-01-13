@@ -4,49 +4,49 @@ require_relative('../homework')
 Minitest::Reporters.use!
 Minitest::Reporters::SpecReporter.new
 
-class TestHomework < Minitest::Test
-
-  def setup
-    @cohort_student = CohortStudent.new('John','G17')
-  end
-
-  def test_get_student_name
-    assert_equal('John', @cohort_student.get_student_name)
-  end
-
-  def test_get_cohort
-    assert_equal('G17', @cohort_student.get_cohort)
-  end
-
-  def test_set_student_name
-    @cohort_student.set_student_name('Not John')
-    assert_equal('Not John',@cohort_student.get_student_name)
-  end
-
-  def test_set_cohort
-    @cohort_student.set_cohort('3')
-    assert_equal('3', @cohort_student.get_cohort)
-  end
-
-  def test_student_says
-    @cohort_student.student_says
-    assert_equal("John says 'Yeah boi!'", @cohort_student.student_says)
-  end
-
-  def test_favourite_language
-    @cohort_student.favourite_language('English')
-    assert_equal("John likes English", @cohort_student.favourite_language('English'))
-  end
-
-
-
-
-
-
-
-
-end
-
+# class TestHomework < Minitest::Test
+#
+#   def setup
+#     @cohort_student = CohortStudent.new('John','G17')
+#   end
+#
+#   def test_get_student_name
+#     assert_equal('John', @cohort_student.get_student_name)
+#   end
+#
+#   def test_get_cohort
+#     assert_equal('G17', @cohort_student.get_cohort)
+#   end
+#
+#   def test_set_student_name
+#     @cohort_student.set_student_name('Not John')
+#     assert_equal('Not John',@cohort_student.get_student_name)
+#   end
+#
+#   def test_set_cohort
+#     @cohort_student.set_cohort('3')
+#     assert_equal('3', @cohort_student.get_cohort)
+#   end
+#
+#   def test_student_says
+#     @cohort_student.student_says
+#     assert_equal("John says 'Yeah boi!'", @cohort_student.student_says)
+#   end
+#
+#   def test_favourite_language
+#     @cohort_student.favourite_language('English')
+#     assert_equal("John likes English", @cohort_student.favourite_language('English'))
+#   end
+#
+#
+#
+#
+#
+#
+#
+#
+# end
+#
 
 class Testhomework2 < Minitest::Test
   def setup
@@ -90,5 +90,38 @@ class Testhomework2 < Minitest::Test
   end
 
 
+
+end
+
+class TestLibrary < Minitest::Test
+
+  def setup
+    @my_book = Library.new([{
+      title: "lord_of_the_rings",
+      rental_details: {
+        student_name: "Jeff",
+        date: "01/12/16"
+        }
+      },
+      # {
+      #   title: "A Christmas Carol",
+      #   rental_details: {
+      #     student_name: "Steve",
+      #     date: "21/12/16"
+      #     }
+        }]
+    )
+  end
+
+  def test_get_book
+    # book_title = @my_book[:title]
+    assert_equal({
+      title: "lord_of_the_rings",
+      rental_details: {
+        student_name: "Jeff",
+        date: "01/12/16"
+        }
+      }, @my_book.book)
+  end
 
 end
